@@ -26,8 +26,6 @@ import {
   API_ASSETS_SEARCH_PATH,
   API_ASSETS_TYPES_PATH,
   apiUrl,
-  egeriaFetch,
-  fetchData,
   fetchRawData,
   fetchTypes,
   glossaries,
@@ -37,18 +35,32 @@ import {
 } from './api';
 
 import {
+  egeriaFetch,
+  fetchData
+} from './http';
+
+import {
   authHeader,
   authHeaderWithContentType,
-  currentJwt,
-  getSub,
-  handleResponse,
-  hasComponent,
-  hasTab,
+  handleResponse
+} from './http';
+
+import {
+  hasComponent
+} from './permissions';
+
+import {
   login,
-  logout,
-  parseJwt,
-  setToken
-} from './auth';
+  logout
+} from './authentication';
+
+import {
+  hasTab
+} from './has-tab';
+
+import {
+  token
+} from './token';
 
 import {
   ABOUT_PATH,
@@ -63,6 +75,8 @@ import {
 } from './commons';
 
 import { formData } from './types/formData';
+import { JWTInterface } from './token';
+import { eNavigateTo } from './events';
 
 import {
   formIsValid,
@@ -75,18 +89,19 @@ import {
 } from './forms';
 
 export type { formData };
+export type { JWTInterface };
 
 export {
   apiUrl,
   authHeader,
   authHeaderWithContentType,
   capitalize,
-  currentJwt,
   egeriaFetch,
+  eNavigateTo,
+  fetchData,
   getComponent,
   getFormattedDate,
   getIconByGroup,
-  getSub,
   glossaries,
   goHome,
   handleResponse,
@@ -100,8 +115,7 @@ export {
   login,
   logout,
   menuIcons,
-  parseJwt,
-  setToken,
+  token,
   types,
 
   ABOUT_PATH,
